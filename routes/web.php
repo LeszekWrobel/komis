@@ -13,6 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('/commissions', 'App\Http\Controllers\CommissionsController');
+
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+//Route::get('/commissions', 'CommissionsController@index');
+//Route::get('/commissions', [CommissionsController::class, 'index']);
+/*
+Route::get('/commissions', 'App\Http\Controllers\CommissionsController@index');
+*/
+
+ /*
+Route::get('/commissions',
+function ()
+   {
+       return view(commissions.index);
+   }
+);*/
+
+/*
+Route::POST('/commissions', 'App\Http\Controllers\\CommissionsController@store');
+
+Route::get('/commissions/create', 'App\Http\Controllers\\CommissionsController@create');
+*/

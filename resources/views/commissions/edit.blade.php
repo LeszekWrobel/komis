@@ -4,9 +4,10 @@
 
 <h1 class="title">Edit </h1>
 
-<form method="POST" action="/commissions/{{$commission->id}}">
-    {{ method_field('PATCH') }}
-    {{csrf_field()}}
+<form method="POST" action="/commissions/{{$commission->id}}>
+    @method('PATCH')
+    @csrf
+
     <div class="field">
       <label for="title" class="label">Title</label>
       <div class="control">
@@ -27,7 +28,20 @@
     </div>
 </form>
 
-
+   <form method="POST" action="/commissions/{{$commission->id}}">
+<!--
+    {{method_field('DELETE')}}
+    {{csrf_field()}}
+-->
+    @method('DELETE')
+    @csrf
+     <div class="field" >
+      <div class="control" >
+        <button type="submit" class="button" >Delete</button>
+      </div>
+     </div>
+    </form>
 
 
 @endsection
+

@@ -15,6 +15,15 @@ class CommissionsController extends Controller
        return view('commissions.index', compact('commissions'));
    }
 
+
+     public function show($id)
+    {
+      //  $commission = Commissions::findOrFail($id);
+      //  return view('/commissions.show', compact('commission'));
+       
+    }
+
+
    public function create()
   {
       return view ('commissions.create');
@@ -35,7 +44,7 @@ class CommissionsController extends Controller
   //public function edit(Post $post)
   public function edit($id)
     {
-        $commission=Commissions::find($id);
+        $commission=Commissions::findOrFail($id);
        return view('commissions.edit',compact('commission'));
      // return view('commissions.edit');
         //return $id;
@@ -45,13 +54,20 @@ class CommissionsController extends Controller
     //public function update()
     {
         // dd('hello');
-        $commission=Commissions::find($id);
+        $commission=Commissions::findOrFail($id);
         $commission->title=request('title');
         $commission->description=request('description');
         $commission->save();
 
+        return redirect('/commissions'); 
+      
+    }
+     //public function destroy(Post $post)
+     public function destroy($id)
+    {
+        //dd('hallo!!!'.$id);
+        Commissions::findOrFail($id)->delete();
+
         return redirect('/commissions');
-      
-      
     }
 }

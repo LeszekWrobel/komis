@@ -1,11 +1,6 @@
-<!DOCTYPE html>
+@extends('layout')
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+@section('content')
 <h1>hej</h1>
 
 @foreach ($commissions as $commission)
@@ -14,5 +9,15 @@
     <li> {{$commission->description}} </li>
 
 @endforeach
-</body>
-</html>
+-->
+<ul>
+    @foreach ($commissions as $commission)
+         <li>
+            <a href="/commissions/{{$commission->id}}">
+             {{$commission->title}}
+            </a>
+        </li>
+    @endforeach
+</ul>
+
+@endsection
